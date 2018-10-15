@@ -31,15 +31,15 @@ app.get('/off',function (req,res) {
 })
 
 
+client.portUnmapping({
+  public: 12345
+});
+
 client.portMapping({
   public: 12345,
   private: 54321,
   ttl: 10
 }, function(err) {
-});
-
-client.portUnmapping({
-  public: 12345
 });
 
 client.externalIp(function(err, ip) {
