@@ -14,23 +14,32 @@ if (Gpio.accessible) {
   };
 }
 
+
 var client = upnp.createClient();
 var app = express();
 
 app.get('/',(req,res) => res.sendfile('index.html'))
+
 app.get('/on',function (req,res) {
   led.writeSync(true);
   res.sendfile('index.html');
 })
+
 app.get('/off',function (req,res) {
   led.writeSync(false);
   res.sendfile('index.html');
 })
+
+
 client.portMapping({
   public: 12345,
   private: 54321,
   ttl: 10
 }, function(err) {
+});
+
+client.portUnmapping({
+  public: 12345
 });
 
 client.externalIp(function(err, ip) {
