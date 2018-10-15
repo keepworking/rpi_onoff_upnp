@@ -1,0 +1,28 @@
+{
+  "name": "rpi_onoff_upnp",
+  "version": "1.0.0",
+  "description": "raspberry pi iot led onoff using upnp",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "npm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keepworking/rpi_onoff_upnp.git"
+  },
+  "keywords": [
+    "pi",
+    "onoff"
+  ],
+  "author": "keepworking",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keepworking/rpi_onoff_upnp/issues"
+  },
+  "homepage": "https://github.com/keepworking/rpi_onoff_upnp#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nat-upnp": "^1.1.1"
+  }
+}
