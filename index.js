@@ -6,6 +6,7 @@ let led;
 
 
 // Gpio 접근 권한에 따라
+// checking GPIO accessible
 if (Gpio.accessible) {
   led = new Gpio(26, 'out');
 } else {
@@ -22,6 +23,7 @@ var app = express();
 
 
 // express 요청 별 화면 구성
+// express request event definetion
 app.get('/',(req,res) => res.sendfile('index.html'))
 
 app.get('/on',function (req,res) {
@@ -35,11 +37,13 @@ app.get('/off',function (req,res) {
 })
 
 // 기존의 포트 포워딩 제거
+// disable older portforwardings
 client.portUnmapping({
   public: 12345
 });
 
 // 포트포워딩 요청
+// request portforwarding
 client.portMapping({
   public: 12345,
   private: 54321,
@@ -47,15 +51,19 @@ client.portMapping({
 }, function(err) {
 });
 
-//외부망 IP 수집
+// 외부망 IP 수집
+// get externalIp
 client.externalIp(function(err, ip) {
   //요청된 포트포워딩 수집
+  // get portforwarding infor mation
   client.getMappings(function(err, results) {
     console.log(results)
     // TODO: 복수의 포트포워딩이 있을시 해당 장비의 포트포워딩 정보만 수집 하도록 해야한다.
+    // TODO: must match the list with device
     pulic_port = results[0].public.port;
     private_port = results[0].private.port;
     // express 포트 열기
+    // listen express server
     app.listen(private_port,()=> console.log('server is running on '+ip+':'+pulic_port))
   });
 });
