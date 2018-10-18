@@ -8,4 +8,6 @@
 
 ## tutorial
 
-[tutorial](https://blog.naver.com/roboholic84/221378011910)
+[KR_Blogs](https://blog.naver.com/roboholic84/221378011910)
+
+[Instructable](https://www.instructables.com/id/Controlling-LED-With-Raspberrypi-by-Simple-Port-Fo/)
